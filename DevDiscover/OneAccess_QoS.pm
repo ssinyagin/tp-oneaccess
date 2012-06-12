@@ -18,14 +18,15 @@
 
 # OneOS Class-based QoS discovery
 
-package Torrus::DevDiscover::OneOS_cbQoS;
+package Torrus::DevDiscover::OneAccess_QoS;
 
 use strict;
+use warnings;
 use Torrus::Log;
 
 
-$Torrus::DevDiscover::registry{'OneOS_cbQoS'} = {
-    'sequence'     => 500,
+$Torrus::DevDiscover::registry{'OneAccess_QoS'} = {
+    'sequence'     => 510,
     'checkdevtype' => \&checkdevtype,
     'discover'     => \&discover,
     'buildConfig'  => \&buildConfig
@@ -34,8 +35,7 @@ $Torrus::DevDiscover::registry{'OneOS_cbQoS'} = {
 
 our %oiddef =
     (
-     'oneaccess'                  => '1.3.6.1.4.1.13191',
-     # ONEACCESS-CLASS-BASED-QOS-MIB
+     # OA-QOS-MIB
      'ServicePolicyTable'         => '1.3.6.1.4.1.13191.10.3.1.3.1',
      'PolicyIndex'                => '1.3.6.1.4.1.13191.10.3.1.3.1.1.1',
      'IfIndex'                    => '1.3.6.1.4.1.13191.10.3.1.3.1.1.2',
@@ -123,21 +123,14 @@ sub checkdevtype
     my $dd = shift;
     my $devdetails = shift;
 
-    if( not $dd->oidBaseMatch
-        ( 'oneaccess',
-          $devdetails->snmpVar( $dd->oiddef('sysObjectID') ) ) )
-    {
-        return 0;
-    }
-
     my $session = $dd->session();
 
-    my $cbQosServicePolicyTable =
-        $session->get_table( -baseoid =>
-                             $dd->oiddef('ServicePolicyTable') );
-    if( defined $cbQosServicePolicyTable )
+    # QoS templates use 64-bit counters, so SNMPv1 is explicitly unsupported
+    
+    if( $devdetails->isDevType('OneAccess') and
+        $devdetails->param('snmp-version') ne '1' and
+        $dd->checkSnmpTable('ServicePolicyTable') )
     {
-        $devdetails->storeSnmpVars( $cbQosServicePolicyTable );
         return 1;
     }
 
