@@ -116,6 +116,17 @@ my %cfgTablesForType =
      'police'          => ['oacQosoacQosPoliceCfgTable']
      );
 
+my %objTypeMap  =
+    (
+     'policymap'      => 1,
+     'classmap'       => 2,
+     'matchStatement' => 3,
+     'queueing'       => 4,
+     'randomDetect'   => 5,
+     'police'         => 7,
+     'set'            => 8 
+     );
+
 
 sub checkdevtype
 {
@@ -278,7 +289,7 @@ sub discover
                 $cfgData->{$oid} = $val;
             }
         }
-        elsif( not $cfgTablesOptional{$tableName} )
+        else
         {
             Error('Error retrieving ' . $tableName);
             return 0;
@@ -308,8 +319,8 @@ sub discover
         }
         elsif( $objType eq 'classmap' )
         {
-            push( @rows, 'cbQosCMName', 'cbQosCMInfo' );
-            $mandatory{'cbQosCMName'} = 1;
+            push( @rows, 'oacQosCMName', 'oacQosCMInfo' );
+            $mandatory{'oacQosCMName'} = 1;
         }
         elsif( $objType eq 'matchStatement' )
         {
@@ -339,7 +350,6 @@ sub discover
                   'oacQosWREDCfgECNEnabled' );
             $mandatory{'oacQosWREDCfgExponWeight'} = 1;
         }
-
         elsif( $objType eq 'police' )
         {
             push( @rows,
@@ -374,14 +384,15 @@ sub discover
                 Warn('Object with missing mandatory configuration: ' .
                      'oacQosPolicyIndex=' .
                      $objectRef->{'oacQosPolicyIndex'} .
-                     ', oacQosObjectsIndex=' . $policyObjectIndex);
+                     ', oacQosObjectsIndex=' . $policyObjectIndex .
+                     ', row=' . $row);
                 delete $data->{'cbqos_objects'}{$policyObjectIndex};
                 $objType = 'DELETED';
             }
         }
    
         # In addition, get per-DSCP RED configuration
-        if( $objType eq 'randomDetect')
+        if( $objType eq 'randomDetect' )
         {
             foreach my $dscp ( @dscpValues )
             {
@@ -393,7 +404,7 @@ sub discover
                     my $dscpN = translateDscpValue( $dscp );
                     my $value = $cfgData->{$dd->oiddef($row) .
                                                '.' . $objConfIndex .
-                                               '.' . $dscpN);
+                                               '.' . $dscpN};
                     if( defined($value) and $value ne '' )
                     {
                         $value = translateCbQoSValue( $value, $row );
@@ -423,7 +434,7 @@ sub buildConfig
    
     # Recursively build a subtree for every policy
 
-    buildChildrenConfigs( $data, $cb, $topNode, '0', '', '' );
+    buildChildrenConfigs( $data, $cb, $topNode, '0', '', '', '', '' );
     return;
 }
 
@@ -436,6 +447,8 @@ sub buildChildrenConfigs
     my $parentObjIndex = shift;
     my $parentObjType = shift;
     my $parentObjName = shift;
+    my $parentObjNick = shift;
+    my $parentFullName = shift;
 
     if( not defined( $data->{'cbqos_children'}{$parentObjIndex} ) )
     {
@@ -444,11 +457,14 @@ sub buildChildrenConfigs
 
     my $precedence = 10000;
     
-    foreach my $objectIndex ( sort { $a <=> $b }
-                              @{$data->{'cbqos_children'}{$parentObjIndex}} )
+    foreach my $policyObjectIndex
+        ( sort { $a <=> $b } @{$data->{'cbqos_children'}{$parentObjIndex}} )
     {
-        my $objectRef     = $data->{'cbqos_objects'}{$objectIndex};
+        my $objectRef     = $data->{'cbqos_objects'}{$policyObjectIndex};
+        
         my $objConfIndex  = $objectRef->{'oacQosConfigIndex'};
+        next unless defined($objConfIndex);
+        
         my $objType       = $objectRef->{'oacQosObjectsType'};
         my $configRef     = $data->{'cbqos_objcfg'}{$objConfIndex};
 
@@ -471,13 +487,21 @@ sub buildChildrenConfigs
         {
             $objectName = $configRef->{'oacQosPolicyMapName'};
 
-            my $policyRef = $data->{'cbqos_policies'}{$objectIndex};
-            if( ref( $policyRef ) )
+            if( $parentObjIndex eq '0' )
             {
+                my $policyIndex = substr($policyObjectIndex, 0,
+                                         index($policyObjectIndex, '.'));
+
+                my $policyRef = $data->{'cbqos_policies'}{$policyIndex};
+                if( not ref( $policyRef ) )
+                {
+                    next;
+                }
+                
                 my $ifIndex    = $policyRef->{'oacQosIfIndex'};
                 my $interface  = $data->{'interfaces'}{$ifIndex};
 
-                if( defined( $interface ) )
+                if( defined( $interface ) and not $interface->{'excluded'} )
                 {
                     my $interfaceName = $interface->{'ifDescr'};
                     $param->{'cbqos-interface-name'} = $interfaceName;
@@ -513,6 +537,12 @@ sub buildChildrenConfigs
                     {
                         $subtreeComment .= ' (' . $ifComment . ')';
                     }
+
+                    $param->{'nodeid-cbqos-policy'} =
+                        'qos//' .
+                        $interface->{$data->{'nameref'}{'ifNodeidPrefix'}} .
+                        $interface->{$data->{'nameref'}{'ifNodeid'}} .
+                        '//' . $dir;
                 }
                 else
                 {
@@ -524,6 +554,7 @@ sub buildChildrenConfigs
                 # Nested policy map
                 $subtreeName = $objectName;
                 $subtreeComment = 'Policy map: ' . $objectName;
+                $objectNick = 'pm_' . $objectName;
             }                
 
             $param->{'legend'} = 'Policy map:' . $objectName;
@@ -548,9 +579,10 @@ sub buildChildrenConfigs
         elsif( $objType eq 'matchStatement' )
         {
             my $name = $configRef->{'oacQosMatchName'};
+            $objectName = $name;            
             $subtreeName = $name;
             $subtreeComment = 'Match statement statistics';
-           $objectNick = 'ms_' . $name;
+            $objectNick = 'ms_' . $name;
             $param->{'cbqos-match-statement-name'} = $name;
             push( @templates,
                   'OneAccess_QoS::oneaccess-cbqos-match-stmt-meters' );
@@ -558,6 +590,8 @@ sub buildChildrenConfigs
         elsif( $objType eq 'queueing' )
         {
             my $bandwidth = $configRef->{'oacQosQueueingCfgBandwidth'};
+            $objectName = $bandwidth;
+            
             my $units = $configRef->{'oacQosQueueingCfgBandwidthUnits'};
 
             $subtreeName = 'Bandwidth_' . $bandwidth . '_' . $units;
@@ -606,6 +640,7 @@ sub buildChildrenConfigs
         elsif( $objType eq 'randomDetect')
         {
             $subtreeName = 'WRED';
+            $objectName = 'WRED';
             $subtreeComment = 'Weighted Random Early Detect Statistics';
             $param->{'legend'} =
                 sprintf('Exponential Weight: %d;',
@@ -622,6 +657,8 @@ sub buildChildrenConfigs
         elsif( $objType eq 'police' )
         {
             my $rate = $configRef->{'oacQosPoliceCfgCIR'};
+            $objectName = $rate;
+            
             $subtreeName = sprintf('Police_%d_bps', $rate );
             $subtreeComment = 'Rate policing statistics';
             $objectNick = 'p_' . $rate;
@@ -663,15 +700,30 @@ sub buildChildrenConfigs
 
             if( $objectNick )
             {
-                if( length($parentObjName) > 0 )
+                if( $parentObjNick ne '' )
                 {
-                    $objectNick = $parent . '_' . $objectNick;
+                    $objectNick = $parentObjNick . '_' . $objectNick;
                 }
                 
                 $param->{'cbqos-object-nick'} = $objectNick;
             }
 
+	    my $fullName = '';
+            if( $parentFullName ) {
+                $fullName .= $parentFullName . ':';
+            }
+
+            $fullName .= $objectName . ':' . $objTypeMap{$objType};
+
+            $param->{'cbqos-full-name'} = $fullName;
             $param->{'comment'} = $subtreeComment;
+            $param->{'cbqos-object-descr'} = $subtreeComment;
+
+            if( ($parentObjType ne '') and ($parentObjName ne '') )
+            {
+                $param->{'cbqos-object-descr'} .= ' in ' .
+                    $parentObjType . ': ' . $parentObjName;
+            }
 
             my $objectNode = $cb->addSubtree( $parentNode, $subtreeName,
                                              $param, \@templates );
@@ -686,14 +738,14 @@ sub buildChildrenConfigs
                     my $cfg = $ref->{$dscp};
                     my $dscpN = translateDscpValue( $dscp );
 
-                    my $param = {
+                    my $objParam = {
                         'comment' => sprintf('DSCP %d', $dscpN),
                         'cbqos-red-dscp' => $dscpN
                         };
 
                     if( defined( $cfg->{'oacQosWREDClassCfgThresholdUnit'} ) )
                     {
-                        $param->{'legend'} =
+                        $objParam->{'legend'} =
                             sprintf('Min Threshold: %d %s;' .
                                     'Max Threshold: %d %s;',
                                     $cfg->{'oacQosWREDClassCfgMinThreshold'},
@@ -703,7 +755,7 @@ sub buildChildrenConfigs
                     }
                     else
                     {
-                        $param->{'legend'} =
+                        $objParam->{'legend'} =
                             sprintf('Min Threshold: %d packets;' .
                                     'Max Threshold: %d packets;',
                                     $cfg->{'oacQosWREDCfgMinThreshold'},
@@ -711,15 +763,17 @@ sub buildChildrenConfigs
                     }
                     
                     $cb->addSubtree
-                        ( $objectNode, $dscp, $param,
+                        ( $objectNode, $dscp, $objParam,
                           ['OneAccess_QoS::oneaccess-cbqos-red-meters'] );
                 }
             }
             else
             {
                 # Recursivery build children
-                buildChildrenConfigs( $data, $cb, $objectNode, $objectIndex,
-                                      $objType, $objectName );
+                buildChildrenConfigs( $data, $cb, $objectNode,
+                                      $policyObjectIndex,
+                                      $objType, $objectName, $objectNick,
+                                      $fullName);
             }
         }
     }
@@ -752,7 +806,7 @@ my $queueUnitTranslation = {
 
 my %oacQosValueTranslation =
     (
-     'IfType' => {
+     'oacQosIfType' => {
          1 => 'mainInterface',
          2 => 'subInterface' },
   
@@ -769,7 +823,7 @@ my %oacQosValueTranslation =
          7 => 'police',
          8 => 'set' },
 
-     'cbQosCMInfo' => {
+     'oacQosCMInfo' => {
          1 => 'none',
          2 => 'all',
          3 => 'any'

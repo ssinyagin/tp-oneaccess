@@ -1,5 +1,7 @@
 push( @Torrus::DevDiscover::loadModules,
-      'Torrus::DevDiscover::OneAccess_QoS' );
+      'Torrus::DevDiscover::OneAccess',
+      'Torrus::DevDiscover::OneAccess_QoS',
+      );
 
 # List of default DSCP values to be monitored for RED statistics.
 # May be redefined in devdiscover-siteconfig.pl, or in DDX parameter:

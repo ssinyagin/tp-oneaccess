@@ -34,7 +34,7 @@ $Torrus::DevDiscover::registry{'OneAccess'} = {
 
 our %oiddef =
     (
-     'oneaccess_products'     =>  '1.3.6.1.4.1.13191',
+     'oneaccess_products'     =>  '1.3.6.1.4.1.13191.1',
      );
 
 

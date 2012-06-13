@@ -1,7 +1,7 @@
 push( @Torrus::Collector::loadModules,
-      'Torrus::Collector::OneOS_cbQoS' );
+      'Torrus::Collector::OneAccess_QoS' );
 
 push( @Torrus::Validator::loadLeafValidators,
-      'Torrus::Collector::OneOS_cbQoS_Params' );
+      'Torrus::Collector::OneAccess_QoS_Params' );
 
 1;
