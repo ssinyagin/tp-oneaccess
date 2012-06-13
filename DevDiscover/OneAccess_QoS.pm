@@ -36,64 +36,63 @@ $Torrus::DevDiscover::registry{'OneAccess_QoS'} = {
 our %oiddef =
     (
      # OA-QOS-MIB
-     'ServicePolicyTable'         => '1.3.6.1.4.1.13191.10.3.1.3.1',
-     'PolicyIndex'                => '1.3.6.1.4.1.13191.10.3.1.3.1.1.1',
-     'IfIndex'                    => '1.3.6.1.4.1.13191.10.3.1.3.1.1.2',
-     'IfType'                     => '1.3.6.1.4.1.13191.10.3.1.3.1.1.3',
-     'PolicyDirection'            => '1.3.6.1.4.1.13191.10.3.1.3.1.1.4',
-     'ObjectsTable'               => '1.3.6.1.4.1.13191.10.3.1.3.3',
-     'ObjectsIndex'               => '1.3.6.1.4.1.13191.10.3.1.3.3.1.1',
-     'ConfigIndex'                => '1.3.6.1.4.1.13191.10.3.1.3.3.1.2',
-     'ObjectsType'                => '1.3.6.1.4.1.13191.10.3.1.3.3.1.3',
-     'ParentObjectsIndex'         => '1.3.6.1.4.1.13191.10.3.1.3.3.1.4',
+     'oacQosServicePolicyTable'         => '1.3.6.1.4.1.13191.10.3.1.3.1',
+     'oacQosPolicyIndex'                => '1.3.6.1.4.1.13191.10.3.1.3.1.1.1',
+     'oacQosIfIndex'                    => '1.3.6.1.4.1.13191.10.3.1.3.1.1.2',
+     'oacQosIfType'                     => '1.3.6.1.4.1.13191.10.3.1.3.1.1.3',
+     'oacQosPolicyDirection'            => '1.3.6.1.4.1.13191.10.3.1.3.1.1.4',
+     'oacQosObjectsTable'               => '1.3.6.1.4.1.13191.10.3.1.3.3',
+     'oacQosObjectsIndex'               => '1.3.6.1.4.1.13191.10.3.1.3.3.1.1',
+     'oacQosConfigIndex'                => '1.3.6.1.4.1.13191.10.3.1.3.3.1.2',
+     'oacQosObjectsType'                => '1.3.6.1.4.1.13191.10.3.1.3.3.1.3',
+     'oacQosParentObjectsIndex'         => '1.3.6.1.4.1.13191.10.3.1.3.3.1.4',
 
-     'PolicyMapCfgTable'          => '1.3.6.1.4.1.13191.10.3.1.3.4',
-     'PolicyMapName'              => '1.3.6.1.4.1.13191.10.3.1.3.4.1.1',
+     'oacQosPolicyMapCfgTable'          => '1.3.6.1.4.1.13191.10.3.1.3.4',
+     'oacQosPolicyMapName'              => '1.3.6.1.4.1.13191.10.3.1.3.4.1.1',
  
-     'CMCfgTable'                 => '1.3.6.1.4.1.13191.10.3.1.3.5',
-     'CMName'                     => '1.3.6.1.4.1.13191.10.3.1.3.5.1.1',
-     'CMInfo'                     => '1.3.6.1.4.1.13191.10.3.1.3.5.1.2',
+     'oacQosCMCfgTable'                 => '1.3.6.1.4.1.13191.10.3.1.3.5',
+     'oacQosCMName'                     => '1.3.6.1.4.1.13191.10.3.1.3.5.1.1',
+     'oacQosCMInfo'                     => '1.3.6.1.4.1.13191.10.3.1.3.5.1.2',
 
-     'MatchCfgTable'              => '1.3.6.1.4.1.13191.10.3.1.3.7',
-     'MatchName'                  => '1.3.6.1.4.1.13191.10.3.1.3.7.1.1',
-     'MatchInfo'                  => '1.3.6.1.4.1.13191.10.3.1.3.7.1.2',
+     'oacQosMatchCfgTable'              => '1.3.6.1.4.1.13191.10.3.1.3.7',
+     'oacQosMatchName'                  => '1.3.6.1.4.1.13191.10.3.1.3.7.1.1',
+     'oacQosMatchInfo'                  => '1.3.6.1.4.1.13191.10.3.1.3.7.1.2',
 
-     'QueueingCfgTable'           => '1.3.6.1.4.1.13191.10.3.1.3.16',
-     'QueueingCfgFlowEnabled'     => '1.3.6.1.4.1.13191.10.3.1.3.16.1.1',
-     'QueueingCfgPriorityEnabled' => '1.3.6.1.4.1.13191.10.3.1.3.16.1.2',
-     'QueueingCfgBandwidth'       => '1.3.6.1.4.1.13191.10.3.1.3.16.1.3',
-     'QueueingCfgBandwidthUnits'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.4',
-     'QueueingCfgAggregateQSize'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.5',
-     'QueueingCfgDynamicQNumber'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.6',
-     'QueueingCfgPrioBurstSize'   => '1.3.6.1.4.1.13191.10.3.1.3.16.1.7',
-     'QueueingCfgQLimitUnits'     => '1.3.6.1.4.1.13191.10.3.1.3.16.1.8',
-     'QueueingCfgAggregateQLimit' => '1.3.6.1.4.1.13191.10.3.1.3.16.1.9',
+     'oacQosQueueingCfgTable'           => '1.3.6.1.4.1.13191.10.3.1.3.16',
+     'oacQosQueueingCfgFlowEnabled'     => '1.3.6.1.4.1.13191.10.3.1.3.16.1.1',
+     'oacQosQueueingCfgPriorityEnabled' => '1.3.6.1.4.1.13191.10.3.1.3.16.1.2',
+     'oacQosQueueingCfgBandwidth'       => '1.3.6.1.4.1.13191.10.3.1.3.16.1.3',
+     'oacQosQueueingCfgBandwidthUnits'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.4',
+     'oacQosQueueingCfgAggregateQSize'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.5',
+     'oacQosQueueingCfgDynamicQNumber'  => '1.3.6.1.4.1.13191.10.3.1.3.16.1.6',
+     'oacQosQueueingCfgPrioBurstSize'   => '1.3.6.1.4.1.13191.10.3.1.3.16.1.7',
+     'oacQosQueueingCfgQLimitUnits'     => '1.3.6.1.4.1.13191.10.3.1.3.16.1.8',
+     'oacQosQueueingCfgAggregateQLimit' => '1.3.6.1.4.1.13191.10.3.1.3.16.1.9',
   
-     'WREDCfgTable'                => '1.3.6.1.4.1.13191.10.3.1.3.13',
-     'WREDCfgExponWeight'          => '1.3.6.1.4.1.13191.10.3.1.3.13.1.1',
-     'WREDCfgDscpPrec'             => '1.3.6.1.4.1.13191.10.3.1.3.13.1.2',
-     'WREDCfgECNEnabled'           => '1.3.6.1.4.1.13191.10.3.1.3.13.1.3',
- 
-     'WREDClassCfgTable'           => '1.3.6.1.4.1.13191.10.3.1.3.14',
-     'WREDValue'                   => '1.3.6.1.4.1.13191.10.3.1.3.14.1.1',
-     'WREDCfgPktDropProb'          => '1.3.6.1.4.1.13191.10.3.1.3.14.1.2',
-     'WREDClassCfgThresholdUnit'   => '1.3.6.1.4.1.13191.10.3.1.3.14.1.3',
-     'WREDClassCfgMinThreshold'    => '1.3.6.1.4.1.13191.10.3.1.3.14.1.4',
-     'WREDClassCfgMaxThreshold'    => '1.3.6.1.4.1.13191.10.3.1.3.14.1.5',
+     'oacQosWREDCfgTable'              => '1.3.6.1.4.1.13191.10.3.1.3.13',
+     'oacQosWREDCfgExponWeight'        => '1.3.6.1.4.1.13191.10.3.1.3.13.1.1',
+     'oacQosWREDCfgDscpPrec'           => '1.3.6.1.4.1.13191.10.3.1.3.13.1.2',
+     'oacQosWREDCfgECNEnabled'         => '1.3.6.1.4.1.13191.10.3.1.3.13.1.3',
+     'oacQosWREDClassCfgTable'         => '1.3.6.1.4.1.13191.10.3.1.3.14',
+     'oacQosWREDValue'                 => '1.3.6.1.4.1.13191.10.3.1.3.14.1.1',
+     'oacQosWREDCfgPktDropProb'        => '1.3.6.1.4.1.13191.10.3.1.3.14.1.2',
+     'oacQosWREDClassCfgThresholdUnit' => '1.3.6.1.4.1.13191.10.3.1.3.14.1.3',
+     'oacQosWREDClassCfgMinThreshold'  => '1.3.6.1.4.1.13191.10.3.1.3.14.1.4',
+     'oacQosWREDClassCfgMaxThreshold'  => '1.3.6.1.4.1.13191.10.3.1.3.14.1.5',
 
-     'PoliceCfgTable'             => '1.3.6.1.4.1.13191.10.3.1.3.10',
-     'PoliceCfgCIR'               => '1.3.6.1.4.1.13191.10.3.1.3.10.1.1',
-     'PoliceCfgCIR64'             => '1.3.6.1.4.1.13191.10.3.1.3.10.1.2',
-     'PoliceCfgBurstSize'         => '1.3.6.1.4.1.13191.10.3.1.3.10.1.3',
-     'PoliceCfgPIR'               => '1.3.6.1.4.1.13191.10.3.1.3.10.1.4',
-     'PoliceCfgExtBurstSize'      => '1.3.6.1.4.1.13191.10.3.1.3.10.1.5',
-     'PoliceCfgConformAction'     => '1.3.6.1.4.1.13191.10.3.1.3.10.1.6',
-     'PoliceCfgConformSetValue'   => '1.3.6.1.4.1.13191.10.3.1.3.10.1.7',
-     'PoliceCfgExceedAction'      => '1.3.6.1.4.1.13191.10.3.1.3.10.1.8',
-     'PoliceCfgExceedSetValue'    => '1.3.6.1.4.1.13191.10.3.1.3.10.1.9',
-     'PoliceCfgViolateAction'     => '1.3.6.1.4.1.13191.10.3.1.3.10.1.10',
-     'PoliceCfgViolateSetValue'   => '1.3.6.1.4.1.13191.10.3.1.3.10.1.11'
-       );
+     'oacQosPoliceCfgTable'            => '1.3.6.1.4.1.13191.10.3.1.3.10',
+     'oacQosPoliceCfgCIR'              => '1.3.6.1.4.1.13191.10.3.1.3.10.1.1',
+     'oacQosPoliceCfgCIR64'            => '1.3.6.1.4.1.13191.10.3.1.3.10.1.2',
+     'oacQosPoliceCfgBurstSize'        => '1.3.6.1.4.1.13191.10.3.1.3.10.1.3',
+     'oacQosPoliceCfgPIR'              => '1.3.6.1.4.1.13191.10.3.1.3.10.1.4',
+     'oacQosPoliceCfgExtBurstSize'     => '1.3.6.1.4.1.13191.10.3.1.3.10.1.5',
+     'oacQosPoliceCfgConformAction'    => '1.3.6.1.4.1.13191.10.3.1.3.10.1.6',
+     'oacQosPoliceCfgConformSetValue'  => '1.3.6.1.4.1.13191.10.3.1.3.10.1.7',
+     'oacQosPoliceCfgExceedAction'     => '1.3.6.1.4.1.13191.10.3.1.3.10.1.8',
+     'oacQosPoliceCfgExceedSetValue'   => '1.3.6.1.4.1.13191.10.3.1.3.10.1.9',
+     'oacQosPoliceCfgViolateAction'    => '1.3.6.1.4.1.13191.10.3.1.3.10.1.10',
+     'oacQosPoliceCfgViolateSetValue'  => '1.3.6.1.4.1.13191.10.3.1.3.10.1.11'
+     );
 
 # Object types "policymap", "set" are not used for statistics.
 
@@ -109,12 +108,12 @@ my %supportedObjectTypes =
 
 my %cfgTablesForType =
     (
-     'policymap'       => ['PolicyMapCfgTable'],
-     'classmap'        => ['CMCfgTable'],
-     'matchStatement'  => ['MatchCfgTable'],
-     'queueing'        => ['QueueingCfgTable'],
-     'randomDetect'    => ['WREDCfgTable', 'WREDClassCfgTable'],
-     'police'          => ['PoliceCfgTable']
+     'policymap'       => ['oacQosPolicyMapCfgTable'],
+     'classmap'        => ['oacQosCMCfgTable'],
+     'matchStatement'  => ['oacQosMatchCfgTable'],
+     'queueing'        => ['oacQosQueueingCfgTable'],
+     'randomDetect'    => ['oacQosWREDCfgTable', 'oacQosWREDClassCfgTable'],
+     'police'          => ['oacQosoacQosPoliceCfgTable']
      );
 
 
@@ -129,7 +128,7 @@ sub checkdevtype
     
     if( $devdetails->isDevType('OneAccess') and
         $devdetails->param('snmp-version') ne '1' and
-        $dd->checkSnmpTable('ServicePolicyTable') )
+        $dd->checkSnmpTable('oacQosServicePolicyTable') )
     {
         return 1;
     }
@@ -146,146 +145,155 @@ sub discover
     my $session = $dd->session();
     my $data = $devdetails->data();
 
-    # Process ServicePolicyTable
+    # Process oacQosServicePolicyTable
 
     $data->{'cbqos_policies'} = {};
-
-    foreach my $policyIndex
-        ( $devdetails->getSnmpIndices( $dd->oiddef('IfType') ) )
+    
+    foreach my $entryName ('oacQosIfIndex','oacQosIfType',
+                           'oacQosPolicyDirection')
     {
-        $data->{'cbqos_policies'}{$policyIndex} = {};
-
-        foreach my $row ('IfIndex','IfType', 'PolicyDirection')
+        my $table = $dd->walkSnmpTable($entryName);
+        while( my($policyIndex, $value) = each %{$table} )
         {
-            my $value = $devdetails->snmpVar($dd->oiddef($row) .
-                                             '.' . $policyIndex);
-            if( defined( $value ) )
-            {
-                $value = translateCbQoSValue( $value, $row );            
-                $data->{'cbqos_policies'}{$policyIndex}{$row} = $value;
-		
-            }
+            $value = translateCbQoSValue( $value, $entryName );
+            $data->{'cbqos_policies'}{$policyIndex}{$entryName} = $value;
         }
     }
+
 
     # Process ObjectsTable
     $data->{'cbqos_objects'} = {};
+    $data->{'cbqos_children'} = {};
 
-    my $ObjectsTable =
-        $session->get_table( -baseoid => $dd->oiddef('ObjectsTable') );
-    if( not defined( $ObjectsTable ) )
+    my $oacQosObjectsType = $dd->walkSnmpTable('oacQosObjectsType');
+
+    if( scalar(keys %{$oacQosObjectsType}) == 0 )
     {
-	Error('ObjectsTable not defined');
         return 1;
     }
-    else
+    
+    while( my($INDEX, $value) = each %{$oacQosObjectsType} )
     {
-        $devdetails->storeSnmpVars( $ObjectsTable );
+        $data->{'cbqos_objects'}{$INDEX}{'oacQosObjectsType'} =
+            translateCbQoSValue( $value, 'oacQosObjectsType' );
     }
 
+    my $oacQosConfigIndex =
+        $dd->walkSnmpTable('oacQosConfigIndex');
+    my $oacQosParentObjectsIndex =
+        $dd->walkSnmpTable('oacQosParentObjectsIndex');
+    
     my $needTables = {};
 
-    foreach my $policyIndex ( keys %{$data->{'cbqos_policies'}} )
+    foreach my $INDEX (keys %{$data->{'cbqos_objects'}})
     {
-        foreach my $objectIndex
-            ( $devdetails->getSnmpIndices( $dd->oiddef('ConfigIndex') .
-                                           '.' . $policyIndex ) )
+        my ($policyIndex, $objectIndex) = split(/\./o, $INDEX);
+
+        if( not exists( $data->{'cbqos_policies'}{$policyIndex} ) )
         {
-            my $object = { 'PolicyIndex' => $policyIndex };
-	             
-            foreach my $row ( 'ConfigIndex',
-                              'ObjectsType',
-                              'ParentObjectsIndex' )
-            {
-                my $value = $devdetails->snmpVar($dd->oiddef($row) .
-                                                 '.' . $policyIndex .
-                                                 '.' . $objectIndex);
-                $value = translateCbQoSValue( $value, $row );
-                $object->{$row} = $value;
-     
-            }
+            delete $data->{'cbqos_objects'}{$INDEX};
+            next;
+        }
 
-            my $objType = $object->{'ObjectsType'};
-  
-            # Store only objects of supported types
-            my $takeit = $supportedObjectTypes{$objType};
+        my $object = $data->{'cbqos_objects'}{$INDEX};
+        $object->{'oacQosPolicyIndex'} = $policyIndex;
+        $object->{'oacQosConfigIndex'} = $oacQosConfigIndex->{$INDEX};
 
-	       
-            # Suppress unneeded objects
-            if( $takeit and
-                $devdetails->param('OneOS_cbQoS::classmaps-only') eq 'yes'
-                and
-                $objType ne 'policymap' and
-                $objType ne 'classmap' )
-            {
-                $takeit = 0;
-            }
+        my $objType = $object->{'oacQosObjectsType'};
 
-            if( $takeit and
-                $devdetails->param('OneOS_cbQoS::suppress-match-statements')
-                eq 'yes' and
-                $objType eq 'matchStatement' )
-            {
-                $takeit = 0;
-            }
+        # Store only objects of supported types
+        my $takeit = $supportedObjectTypes{$objType};
 
-            if( $takeit )
+        # Suppress unneeded objects
+        if( $takeit and
+            $devdetails->paramEnabled('OneAccess_QoS::classmaps-only')
+            and
+            $objType ne 'policymap' and
+            $objType ne 'classmap' )
+        {
+            $takeit = 0;
+        }
+        
+        if( $takeit and
+            $devdetails->paramEnabled
+            ('OneAccess_QoS::suppress-match-statements')
+            and
+            $objType eq 'matchStatement' )
+        {
+            $takeit = 0;
+        }
+
+        if( $takeit )
+        {
+            # Store the hierarchy information
+            my $parent = $oacQosParentObjectsIndex->{$INDEX};
+            if( $parent ne '0' )
             {
-                $data->{'cbqos_objects'}{$objectIndex} = $object;   
-      
-                # Store the hierarchy information
-                my $parent = $object->{'ParentObjectsIndex'};
-                if( not exists( $data->{'cbqos_children'}{$parent} ) )
-                {
-                    $data->{'cbqos_children'}{$parent} = [];
-		 }
-                push( @{$data->{'cbqos_children'}{$parent}}, $objectIndex );
-		
-                foreach my $tableName
-                    ( @{$cfgTablesForType{$object->{'ObjectsType'}}} )
-                {
-                    $needTables->{$tableName} = 1;
-                }
+                $parent = $policyIndex .'.'. $parent;
             }
+                
+            if( not exists( $data->{'cbqos_children'}{$parent} ) )
+            {
+                $data->{'cbqos_children'}{$parent} = [];
+            }
+            push( @{$data->{'cbqos_children'}{$parent}},
+                  $policyIndex .'.'. $objectIndex );
+
+            foreach my $tableName
+                ( @{$cfgTablesForType{$object->{'oacQosObjectsType'}}} )
+            {
+                $needTables->{$tableName} = 1;
+            }
+        }
+        else
+        {
+            delete $data->{'cbqos_objects'}{$INDEX};
         }
     }
 
-    # Retrieve the needed SNMP tables
 
+    # Prepare the list of DSCP values for RED
+    my @dscpValues =
+        split(',',
+              $devdetails->paramString('OneAccess_QoS::red-dscp-values'));
+    
+    if( scalar(@dscpValues) == 0 )
+    {
+        @dscpValues = @Torrus::DevDiscover::OneAccess_QoS::RedDscpValues;
+    }
+
+    my $maxrepetitions = $devdetails->param('snmp-maxrepetitions');
+    my $cfgData = {};
+    
+    # Retrieve needed SNMP tables
     foreach my $tableName ( keys %{$needTables} )
     {
         my $table =
-            $session->get_table( -baseoid => $dd->oiddef( $tableName ) );
+            $session->get_table( -baseoid => $dd->oiddef($tableName),
+                                 -maxrepetitions => $maxrepetitions );
         if( defined( $table ) )
         {
-            $devdetails->storeSnmpVars( $table );
+            while( my($oid, $val) = each %{$table} )
+            {
+                $cfgData->{$oid} = $val;
+            }
         }
-        else
+        elsif( not $cfgTablesOptional{$tableName} )
         {
             Error('Error retrieving ' . $tableName);
             return 0;
         }
     }
 
-    # Prepare the list of DSCP values for RED
-    my @dscpValues;
-    if( defined( $devdetails->param('OneOS_cbQoS::red-dscp-values') ) )
-    {
-        @dscpValues =
-            split(',', $devdetails->param('OneOS_cbQoS::red-dscp-values'));
-    }
-    else
-    {
-        @dscpValues = @Torrus::DevDiscover::OneOS_cbQoS::RedDscpValues;
-    }
-
-    # Process xxxCfgTable
+    
+    # Process oacQoSxxxCfgTable
     $data->{'cbqos_objcfg'} = {};
                 
-    while( my( $objectIndex, $objectRef ) =  each %{$data->{'cbqos_objects'}} )  
+    while( my( $policyObjectIndex, $objectRef ) =
+           each %{$data->{'cbqos_objects'}} )  
     {
-        my $objConfIndex = $objectRef->{'ConfigIndex'};
-        my $objType = $objectRef->{'ObjectsType'};
+        my $objConfIndex = $objectRef->{'oacQosConfigIndex'};
+        my $objType = $objectRef->{'oacQosObjectsType'};
         my $object = {};
         my @rows = ();
        
@@ -295,58 +303,58 @@ sub discover
 
         if( $objType eq 'policymap' )
         {
-            push( @rows, 'PolicyMapName');
-            $mandatory{'PolicyMapName'} = 1;
+            push( @rows, 'oacQosPolicyMapName');
+            $mandatory{'oacQosPolicyMapName'} = 1;
         }
         elsif( $objType eq 'classmap' )
         {
-            push( @rows, 'CMName', 'CMInfo' );
-            $mandatory{'CMName'} = 1;
+            push( @rows, 'cbQosCMName', 'cbQosCMInfo' );
+            $mandatory{'cbQosCMName'} = 1;
         }
         elsif( $objType eq 'matchStatement' )
         {
-            push( @rows, 'MatchName' );
-            $mandatory{'MatchName'} = 1;
+            push( @rows, 'oacQosMatchName' );
+            $mandatory{'oacQosMatchName'} = 1;
         }
         elsif( $objType eq 'queueing' )
         {
             push( @rows,
-                  'QueueingCfgFlowEnabled',
-                  'QueueingCfgPriorityEnabled',
-                  'QueueingCfgBandwidth',
-                  'QueueingCfgBandwidthUnits',
-                  'QueueingCfgAggregateQSize',
-                  'QueueingCfgDynamicQNumber',
-                  'QueueingCfgPrioBurstSize',
-                  'QueueingCfgQLimitUnits',
-                  'QueueingCfgAggregateQLimit');
-            $mandatory{'QueueingCfgBandwidth'} = 1;
-            $mandatory{'QueueingCfgBandwidthUnits'} = 1;
+                  'oacQosQueueingCfgFlowEnabled',
+                  'oacQosQueueingCfgPriorityEnabled',
+                  'oacQosQueueingCfgBandwidth',
+                  'oacQosQueueingCfgBandwidthUnits',
+                  'oacQosQueueingCfgAggregateQSize',
+                  'oacQosQueueingCfgDynamicQNumber',
+                  'oacQosQueueingCfgPrioBurstSize',
+                  'oacQosQueueingCfgQLimitUnits',
+                  'oacQosQueueingCfgAggregateQLimit');
+            $mandatory{'oacQosQueueingCfgBandwidth'} = 1;
+            $mandatory{'oacQosQueueingCfgBandwidthUnits'} = 1;
         }
         elsif( $objType eq 'randomDetect')
         {
             push( @rows,
-                  'WREDCfgExponWeight',
-                  'WREDCfgDscpPrec',
-                  'WREDCfgECNEnabled' );
-            $mandatory{'WREDCfgExponWeight'} = 1;
+                  'oacQosWREDCfgExponWeight',
+                  'oacQosWREDCfgDscpPrec',
+                  'oacQosWREDCfgECNEnabled' );
+            $mandatory{'oacQosWREDCfgExponWeight'} = 1;
         }
 
         elsif( $objType eq 'police' )
         {
             push( @rows,
-                  'PoliceCfgCIR',
-                  'PoliceCfgCIR64',
-                  'PoliceCfgBurstSize',
-                  'PoliceCfgPIR',
-                  'PoliceCfgExtBurstSize',
-                  'PoliceCfgConformAction',
-                  'PoliceCfgConformSetValue',
-                  'PoliceCfgExceedAction',
-                  'PoliceCfgExceedSetValue',
-                  'PoliceCfgViolateAction',
-                  'PoliceCfgViolateSetValue');
-            $mandatory{'PoliceCfgCIR'} = 1;
+                  'oacQosPoliceCfgCIR',
+                  'oacQosPoliceCfgCIR64',
+                  'oacQosPoliceCfgBurstSize',
+                  'oacQosPoliceCfgPIR',
+                  'oacQosPoliceCfgExtBurstSize',
+                  'oacQosPoliceCfgConformAction',
+                  'oacQosPoliceCfgConformSetValue',
+                  'oacQosPoliceCfgExceedAction',
+                  'oacQosPoliceCfgExceedSetValue',
+                  'oacQosPoliceCfgViolateAction',
+                  'oacQosPoliceCfgViolateSetValue');
+            $mandatory{'oacQosPoliceCfgCIR'} = 1;
         }
         else
         {
@@ -355,11 +363,8 @@ sub discover
 
         foreach my $row ( @rows )
         {
-            my $value = $devdetails->snmpVar($dd->oiddef($row) .
-                                             '.' . $objConfIndex);
-	    
-
-            if( length( $value ) > 0 )
+            my $value = $cfgData->{$dd->oiddef($row) .'.'. $objConfIndex};
+            if( defined($value) and $value ne '' )
             {
                 $value = translateCbQoSValue( $value, $row );
                 $data->{'cbqos_objcfg'}{$objConfIndex}{$row} = $value;
@@ -367,9 +372,10 @@ sub discover
             elsif( $mandatory{$row} )
             {
                 Warn('Object with missing mandatory configuration: ' .
-                     'PolicyIndex=' . $objectRef->{'PolicyIndex'} .
-                     ', ObjectsIndex=' . $objectIndex);
-                delete $data->{'cbqos_objects'}{$objectIndex};
+                     'oacQosPolicyIndex=' .
+                     $objectRef->{'oacQosPolicyIndex'} .
+                     ', oacQosObjectsIndex=' . $policyObjectIndex);
+                delete $data->{'cbqos_objects'}{$policyObjectIndex};
                 $objType = 'DELETED';
             }
         }
@@ -379,16 +385,16 @@ sub discover
         {
             foreach my $dscp ( @dscpValues )
             {
-                foreach my $row ( qw(WREDCfgPktDropProb
-                                     WREDClassCfgThresholdUnit
-                                     WREDClassCfgMinThreshold
-                                     WREDClassCfgMaxThreshold) )
+                foreach my $row ( qw(oacQosWREDCfgPktDropProb
+                                     oacQosWREDClassCfgThresholdUnit
+                                     oacQosWREDClassCfgMinThreshold
+                                     oacQosWREDClassCfgMaxThreshold) )
                 {
                     my $dscpN = translateDscpValue( $dscp );
-                    my $value = $devdetails->snmpVar($dd->oiddef($row) .
-                                                     '.' . $objConfIndex .
-                                                     '.' . $dscpN);
-                    if( length( $value ) > 0 )
+                    my $value = $cfgData->{$dd->oiddef($row) .
+                                               '.' . $objConfIndex .
+                                               '.' . $dscpN);
+                    if( defined($value) and $value ne '' )
                     {
                         $value = translateCbQoSValue( $value, $row );
                         $data->{'cbqos_redcfg'}{$objConfIndex}{$dscp}{$row} =
@@ -402,6 +408,7 @@ sub discover
     return 1;
 }
 
+
 sub buildConfig
 {
     my $devdetails = shift;
@@ -412,11 +419,12 @@ sub buildConfig
 
     my $topNode =
         $cb->addSubtree( $devNode, 'QoS_Stats', undef,
-                         ['OneOS_cbQoS::oneaccess-cbqos-subtree']);
+                         ['OneAccess_QoS::oneaccess-cbqos-subtree']);
    
     # Recursively build a subtree for every policy
 
     buildChildrenConfigs( $data, $cb, $topNode, '0', '', '' );
+    return;
 }
 
 
@@ -440,8 +448,8 @@ sub buildChildrenConfigs
                               @{$data->{'cbqos_children'}{$parentObjIndex}} )
     {
         my $objectRef     = $data->{'cbqos_objects'}{$objectIndex};
-        my $objConfIndex  = $objectRef->{'ConfigIndex'};
-        my $objType       = $objectRef->{'ObjectsType'};
+        my $objConfIndex  = $objectRef->{'oacQosConfigIndex'};
+        my $objType       = $objectRef->{'oacQosObjectsType'};
         my $configRef     = $data->{'cbqos_objcfg'}{$objConfIndex};
 
         my $objectName = '';
@@ -461,12 +469,12 @@ sub buildChildrenConfigs
         
         if( $objType eq 'policymap' )
         {
-            $objectName = $configRef->{'PolicyMapName'};
+            $objectName = $configRef->{'oacQosPolicyMapName'};
 
             my $policyRef = $data->{'cbqos_policies'}{$objectIndex};
             if( ref( $policyRef ) )
             {
-                my $ifIndex    = $policyRef->{'IfIndex'};
+                my $ifIndex    = $policyRef->{'oacQosIfIndex'};
                 my $interface  = $data->{'interfaces'}{$ifIndex};
 
                 if( defined( $interface ) )
@@ -483,12 +491,10 @@ sub buildChildrenConfigs
                 
                     $subtreeComment = $interfaceName;
                     
-                    my $ifType = $policyRef->{'IfType'};
+                    my $ifType = $policyRef->{'oacQosIfType'};
                     $param->{'cbqos-interface-type'} = $ifType;
-
-  
                     
-                    my $direction = $policyRef->{'PolicyDirection'};
+                    my $direction = $policyRef->{'oacQosPolicyDirection'};
                     
                     # input -> in, output -> out
                     my $dir = $direction;
@@ -503,7 +509,7 @@ sub buildChildrenConfigs
 
                     my $ifComment =
                         $interface->{$data->{'nameref'}{'ifComment'}};
-                    if( length( $ifComment ) > 0 )
+                    if( defined($ifComment) and $ifComment ne '' )
                     {
                         $subtreeComment .= ' (' . $ifComment . ')';
                     }
@@ -523,78 +529,78 @@ sub buildChildrenConfigs
             $param->{'legend'} = 'Policy map:' . $objectName;
      
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-policymap-subtree' );
+                  'OneAccess_QoS::oneaccess-cbqos-policymap-subtree' );
         }
         elsif( $objType eq 'classmap' )
         {
-            $objectName = $configRef->{'CMName'};
+            $objectName = $configRef->{'oacQosCMName'};
             $subtreeName = $objectName;
             $subtreeComment = 'Class: ' . $objectName;
             $objectNick = 'cm_' . $objectName;
             $param->{'cbqos-class-map-name'} = $objectName;
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-classmap-meters' );
+                  'OneAccess_QoS::oneaccess-cbqos-classmap-meters' );
 
             $param->{'legend'} =
-                sprintf('Match: %s;', $configRef->{'CMInfo'});
+                sprintf('Match: %s;', $configRef->{'oacQosCMInfo'});
     
         }
         elsif( $objType eq 'matchStatement' )
         {
-            my $name = $configRef->{'MatchName'};
+            my $name = $configRef->{'oacQosMatchName'};
             $subtreeName = $name;
             $subtreeComment = 'Match statement statistics';
            $objectNick = 'ms_' . $name;
             $param->{'cbqos-match-statement-name'} = $name;
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-match-stmt-meters' );
+                  'OneAccess_QoS::oneaccess-cbqos-match-stmt-meters' );
         }
         elsif( $objType eq 'queueing' )
         {
-            my $bandwidth = $configRef->{'QueueingCfgBandwidth'};
-            my $units = $configRef->{'QueueingCfgBandwidthUnits'};
+            my $bandwidth = $configRef->{'oacQosQueueingCfgBandwidth'};
+            my $units = $configRef->{'oacQosQueueingCfgBandwidthUnits'};
 
             $subtreeName = 'Bandwidth_' . $bandwidth . '_' . $units;
             $subtreeComment = 'Queueing statistics';
             $objectNick = 'qu_' . $bandwidth;
             $param->{'cbqos-queueing-bandwidth'} = $bandwidth;
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-queueing-meters' );
+                  'OneAccess_QoS::oneaccess-cbqos-queueing-meters' );
 
             $param->{'legend'} =
                 sprintf('Guaranteed Bandwidth: %d %s;' .
                         'Flow: %s;' .
                         'Priority: %s;',                        
                         $bandwidth, $units,                        
-                        $configRef->{'QueueingCfgFlowEnabled'},
-                        $configRef->{'QueueingCfgPriorityEnabled'});
+                        $configRef->{'oacQosQueueingCfgFlowEnabled'},
+                        $configRef->{'oacQosQueueingCfgPriorityEnabled'});
 
-            if( defined( $configRef->{'QueueingCfgAggregateQLimit'} ) )
+            if( defined( $configRef->{'oacQosQueueingCfgAggregateQLimit'} ) )
             {
                 $param->{'legend'} .=
                     sprintf('Max Queue Size: %d %s;',
-                            $configRef->{'QueueingCfgAggregateQLimit'},
-                            $configRef->{'QueueingCfgQLimitUnits'});
+                            $configRef->{'oacQosQueueingCfgAggregateQLimit'},
+                            $configRef->{'oacQosQueueingCfgQLimitUnits'});
             }
-            elsif( defined( $configRef->{'QueueingCfgAggregateQSize'} ) )
+            elsif( defined( $configRef->{'oacQosQueueingCfgAggregateQSize'} ) )
             {
                 $param->{'legend'} .=
                     sprintf('Max Queue Size: %d packets;',
-                            $configRef->{'QueueingCfgAggregateQSize'});
+                            $configRef->{'oacQosQueueingCfgAggregateQSize'});
             }
     
-            if( $configRef->{'QueueingCfgDynamicQNumber'} > 0 )
+            if( $configRef->{'oacQosQueueingCfgDynamicQNumber'} > 0 )
             {
                 $param->{'legend'} .=
                     sprintf('Max Dynamic Queues: %d;',
-                            $configRef->{'QueueingCfgDynamicQNumber'});
+                            $configRef->{'oacQosQueueingCfgDynamicQNumber'});
             }
 
-            if( $configRef->{'QueueingCfgPrioBurstSize'} > 0 )
+            if( $configRef->{'oacQosQueueingCfgPrioBurstSize'} > 0 )
             {
                 $param->{'legend'} .=
                     sprintf('Priority Burst Size: %d bytes;',
-                            $configRef->{'QueueingCfgPrioBurstSize'});
+                            $configRef->{'oacQosQueueingCfgPrioBurstSize'});
             }
         }
         elsif( $objType eq 'randomDetect')
@@ -603,11 +609,11 @@ sub buildChildrenConfigs
             $subtreeComment = 'Weighted Random Early Detect Statistics';
             $param->{'legend'} =
                 sprintf('Exponential Weight: %d;',
-                        $configRef->{'WREDCfgExponWeight'});
+                        $configRef->{'oacQosWREDCfgExponWeight'});
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-red-subtree' );
+                  'OneAccess_QoS::oneaccess-cbqos-red-subtree' );
 
-            if( $configRef->{'WREDCfgDscpPrec'} == 1 )
+            if( $configRef->{'oacQosWREDCfgDscpPrec'} == 1 )
             {
                 Error('Precedence-based WRED is not supported');
             }
@@ -615,13 +621,13 @@ sub buildChildrenConfigs
 
         elsif( $objType eq 'police' )
         {
-            my $rate = $configRef->{'PoliceCfgCIR'};
+            my $rate = $configRef->{'oacQosPoliceCfgCIR'};
             $subtreeName = sprintf('Police_%d_bps', $rate );
             $subtreeComment = 'Rate policing statistics';
             $objectNick = 'p_' . $rate;
             $param->{'cbqos-police-rate'} = $rate;
             push( @templates,
-                  'OneOS_cbQoS::oneaccess-cbqos-police-meters' );
+                  'OneAccess_QoS::oneaccess-cbqos-police-meters' );
 
             $param->{'legend'} =
                 sprintf('Committed Rate: %d bits/second;' .
@@ -634,14 +640,14 @@ sub buildChildrenConfigs
                         'Violate Action: %s;' .
                         'Violate Set Value: %d',
                         $rate,
-                        $configRef->{'PoliceCfgBurstSize'},
-                        $configRef->{'PoliceCfgExtBurstSize'},
-                        $configRef->{'PoliceCfgConformAction'},
-                        $configRef->{'PoliceCfgConformSetValue'},
-                        $configRef->{'PoliceCfgExceedAction'},
-                        $configRef->{'PoliceCfgExceedSetValue'},
-                        $configRef->{'PoliceCfgViolateAction'},
-                        $configRef->{'PoliceCfgViolateSetValue'});
+                        $configRef->{'oacQosPoliceCfgBurstSize'},
+                        $configRef->{'oacQosPoliceCfgExtBurstSize'},
+                        $configRef->{'oacQosPoliceCfgConformAction'},
+                        $configRef->{'oacQosPoliceCfgConformSetValue'},
+                        $configRef->{'oacQosPoliceCfgExceedAction'},
+                        $configRef->{'oacQosPoliceCfgExceedSetValue'},
+                        $configRef->{'oacQosPoliceCfgViolateAction'},
+                        $configRef->{'oacQosPoliceCfgViolateSetValue'});
         }
         else
         {
@@ -659,11 +665,6 @@ sub buildChildrenConfigs
             {
                 if( length($parentObjName) > 0 )
                 {
-                    # For previous version compatibility, we have to
-                    # preserve dash (-) in parent name
-                    my $parent = $parentObjName;                    
-                    $parent =~ s/[^0-9a-zA-Z-_]/_/g;
-                    $parent =~ s/__/_/g;
                     $objectNick = $parent . '_' . $objectNick;
                 }
                 
@@ -690,28 +691,28 @@ sub buildChildrenConfigs
                         'cbqos-red-dscp' => $dscpN
                         };
 
-                    if( defined( $cfg->{'WREDClassCfgThresholdUnit'} ) )
+                    if( defined( $cfg->{'oacQosWREDClassCfgThresholdUnit'} ) )
                     {
                         $param->{'legend'} =
                             sprintf('Min Threshold: %d %s;' .
                                     'Max Threshold: %d %s;',
-                                    $cfg->{'WREDClassCfgMinThreshold'},
-                                    $cfg->{'WREDClassCfgThresholdUnit'},
-                                    $cfg->{'WREDClassCfgMaxThreshold'},
-                                    $cfg->{'WREDClassCfgThresholdUnit'});
+                                    $cfg->{'oacQosWREDClassCfgMinThreshold'},
+                                    $cfg->{'oacQosWREDClassCfgThresholdUnit'},
+                                    $cfg->{'oacQosWREDClassCfgMaxThreshold'},
+                                    $cfg->{'oacQosWREDClassCfgThresholdUnit'});
                     }
                     else
                     {
                         $param->{'legend'} =
                             sprintf('Min Threshold: %d packets;' .
                                     'Max Threshold: %d packets;',
-                                    $cfg->{'WREDCfgMinThreshold'},
-                                    $cfg->{'WREDCfgMaxThreshold'});
+                                    $cfg->{'oacQosWREDCfgMinThreshold'},
+                                    $cfg->{'oacQosWREDCfgMaxThreshold'});
                     }
                     
                     $cb->addSubtree
-                        ( $objectNode, $dscp,
-                          $param, ['OneOS_cbQoS::oneaccess-cbqos-red-meters'] );
+                        ( $objectNode, $dscp, $param,
+                          ['OneAccess_QoS::oneaccess-cbqos-red-meters'] );
                 }
             }
             else
@@ -722,6 +723,7 @@ sub buildChildrenConfigs
             }
         }
     }
+    return;
 }
 
 
@@ -748,17 +750,17 @@ my $queueUnitTranslation = {
     };
 
 
-my %cbQosValueTranslation =
+my %oacQosValueTranslation =
     (
      'IfType' => {
          1 => 'mainInterface',
          2 => 'subInterface' },
   
-     'PolicyDirection' => {
+     'oacQosPolicyDirection' => {
          1 => 'input',
          2 => 'output' },
 
-     'ObjectsType' => {
+     'oacQosObjectsType' => {
          1 => 'policymap',
          2 => 'classmap',
          3 => 'matchStatement',
@@ -767,29 +769,29 @@ my %cbQosValueTranslation =
          7 => 'police',
          8 => 'set' },
 
-     'CMInfo' => {
+     'cbQosCMInfo' => {
          1 => 'none',
          2 => 'all',
          3 => 'any'
          },
      
-     'QueueingCfgBandwidthUnits'   => {
+     'oacQosQueueingCfgBandwidthUnits'   => {
          1 => 'kbps',
          2 => 'percent',
          3 => 'percent_remaining'
          },
      
-     'WREDClassCfgThresholdUnit'    => $queueUnitTranslation,
+     'oacQosWREDClassCfgThresholdUnit'    => $queueUnitTranslation,
      
-     'QueueingCfgFlowEnabled'      => $truthValueTranslation,
-     'QueueingCfgPriorityEnabled'  => $truthValueTranslation,
+     'oacQosQueueingCfgFlowEnabled'      => $truthValueTranslation,
+     'oacQosQueueingCfgPriorityEnabled'  => $truthValueTranslation,
 
-     'QueueingCfgQLimitUnits'      => $queueUnitTranslation,
+     'oacQosQueueingCfgQLimitUnits'      => $queueUnitTranslation,
     
         
-     'PoliceCfgConformAction'  => $policyActionTranslation,
-     'PoliceCfgExceedAction'   => $policyActionTranslation,
-     'PoliceCfgViolateAction'  => $policyActionTranslation
+     'oacQosPoliceCfgConformAction'  => $policyActionTranslation,
+     'oacQosPoliceCfgExceedAction'   => $policyActionTranslation,
+     'oacQosPoliceCfgViolateAction'  => $policyActionTranslation
      );
 
 sub translateCbQoSValue
@@ -801,15 +803,15 @@ sub translateCbQoSValue
     $value =~ s/^\s+//;
     $value =~ s/\s+$//;
 
-    if( defined( $cbQosValueTranslation{$name} ) )
+    if( defined( $oacQosValueTranslation{$name} ) )
     {
-        if( not defined( $cbQosValueTranslation{$name}{$value} ) )
+        if( not defined( $oacQosValueTranslation{$name}{$value} ) )
         {
             die('Unknown value to translate for ' . $name .
                 ': "' . $value . '"');
         }
 
-        $value = $cbQosValueTranslation{$name}{$value};
+        $value = $oacQosValueTranslation{$name}{$value};
     }
 
     return $value;

@@ -24,27 +24,29 @@
 
 #####   Perl modules  #####
 myperlmoddiscdir = $(perllibdir)/Torrus/DevDiscover
-dist_myperlmoddisc_DATA = DevDiscover/OneOS_cbQoS.pm
+dist_myperlmoddisc_DATA = \
+	DevDiscover/OneAccess.pm \
+	DevDiscover/OneAccess_QoS.pm
 
 myperlmodcoldir = $(perllibdir)/Torrus/Collector
 dist_myperlmodcol_DATA = \
-	Collector/OneOS_cbQoS.pm \
-	Collector/OneOS_cbQoS_Params.pm
+	Collector/OneAccess_QoS_Params.pm \
+	Collector/OneAccess_QoS.pm
 
 
 #####   Perl configuration files  #####
 torruscfgdir = $(plugtorruscfgdir)
-dist_torruscfg_DATA = oneaccess-cbqos-torruscfg.pl
+dist_torruscfg_DATA = tp-oneaccess-torruscfg.pl
 devdisccfgdir = $(plugdevdisccfgdir)
-dist_devdisccfg_DATA = oneaccess-cbqos-ddcfg.pl
+dist_devdisccfg_DATA = tp-oneaccess-ddcfg.pl
 
 
 
 #####   XML configuration   #####
 myxmldir = $(distxmldir)/vendor
-dist_myxml_DATA = oneaccess.oneos.cbqos.xml
+dist_myxml_DATA = oneaccess.qos.xml
 
 
 #####   Documentation files   #####
-pkgdocdir  = @pkgdocdir@
-dist_pkgdoc_DATA = tp-oneaccess-cbqos.txt
+#pkgdocdir  = @pkgdocdir@
+#dist_pkgdoc_DATA = tp-oneaccess-cbqos.txt

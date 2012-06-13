@@ -16,10 +16,11 @@
 #  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 
-package Torrus::Collector::OneOS_cbQoS_Params;
-
+package Torrus::Collector::OneAccess_QoS_Params;
 
 use strict;
+use warnings;
+
 
 # List of needed parameters and default values
 
