@@ -50,7 +50,8 @@ our %requiredLeafParams =
              'cbqos-police-rate' => undef },
          'set'            => undef },
      
-     'cbqos-parent-name' => undef
+     'cbqos-parent-name' => undef,
+     'cbqos-full-name' => undef
      );
 
 
