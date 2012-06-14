@@ -1,0 +1,48 @@
+#  Copyright (C) 2012  Stanislav Sinyagin
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+# Stanislav Sinyagin <ssinyagin@yahoo.com>
+#
+#
+
+=head1 Torrus plugin for OneAccess CPE devices
+
+
+=head2 Introduction
+
+This plugin provides support for OneAccess CPE devices. The OneAccess QoS MIB resembles the class-based QoS MIB for Cisco devices, and this plugin contains an dapted copy of "tp-cbqos" plugin.
+
+
+=head2 Installation
+
+Follow the Torrus installation guide for the main software installation.
+
+Unpack the plugin distribution package in some directory:
+
+  gzip -dc tp-oneaccess-2.X.Y.tar.gz | tar xvf -
+
+Then run the Torrus plugin installation utility:
+
+  torrus install_plugin tp-oneaccess-2.X.Y
+
+Collector processes need a restart after installing the plugin.
+
+
+Development of this plugin was sponsored by M-net Telekommunikations GmbH.
+
+=head1 Author
+
+Copyright (c) 2012 Stanislav Sinyagin E<lt>ssinyagin@yahoo.comE<gt>

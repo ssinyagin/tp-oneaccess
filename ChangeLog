@@ -1,0 +1,12 @@
+2012-06-14  Stanislav Sinyagin  <ssinyagin@users.sourceforge.net>
+
+	* Collector/OneAccess_QoS.pm: aligned to the current Cisco QoS plugin
+
+	* DevDiscover/OneAccess_QoS.pm: Adapted to the latest DevDiscover
+	API and aligned with the current Cisco QoS plugin.
+
+	* DevDiscover/OneAccess.pm: persistent interface indexing
+
+	* Created a new plugin based on tp-oneaccess-cbqos plugin from
+	OneAccess.
+

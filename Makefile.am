@@ -48,5 +48,9 @@ dist_myxml_DATA = oneaccess.qos.xml
 
 
 #####   Documentation files   #####
-#pkgdocdir  = @pkgdocdir@
-#dist_pkgdoc_DATA = tp-oneaccess-cbqos.txt
+pkgdocdir  = @pkgdocdir@
+dist_pkgdoc_DATA = tp-oneaccess.txt tp-oneaccess.pod
+SUFFIXES = .pod .txt
+.pod.txt:
+	pod2text $< $@ 
+

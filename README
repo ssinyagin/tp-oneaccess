@@ -1,7 +1,8 @@
-Torrus Plugin for OneAccess Class-based QoS monitoring
+Torrus Plugin for OneAccess CPE devices
 
-See tp-oneaccess-cbqos.txt for more details.
+See tp-oneaccess.pod for more details.
 
-See http://torrus.sourceforge.net for Torrus project documentation
+See http://torrus.org for Torrus project documentation
 
-(C) 2009, OneAccess Networks
+Copyright (C) 2009, OneAccess Networks
+Copyright (C) 2012, Stanislav Sinyagin
