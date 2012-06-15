@@ -38,6 +38,31 @@ our %oiddef =
      );
 
 
+our $interfaceFilter;
+our $interfaceFilterOverlay;
+
+my %oacInterfaceFilter =
+    (
+     'Null0' => {
+         'ifType'  => 1,                      # other
+         'ifDescr' => '^Null'
+         },
+     'LoopbackN'  => {
+         'ifType'  => 24,                     # softwareLoopback
+         'ifDescr' => '^Loopback'
+         },
+     'BviN' => {
+         'ifType'  => 53,                     # propVirtual
+         'ifDescr' => '^Bvi'
+         },
+     );
+
+if( not defined( $interfaceFilter ) )
+{
+    $interfaceFilter = \%oacInterfaceFilter;
+}
+
+
 sub checkdevtype
 {
     my $dd = shift;
@@ -48,6 +73,15 @@ sub checkdevtype
           $devdetails->snmpVar( $dd->oiddef('sysObjectID') ) ) )
     {
         return 0;
+    }
+
+    &Torrus::DevDiscover::RFC2863_IF_MIB::addInterfaceFilter
+        ($devdetails, $interfaceFilter);
+    
+    if( defined( $interfaceFilterOverlay ) )
+    {
+        &Torrus::DevDiscover::RFC2863_IF_MIB::addInterfaceFilter
+            ($devdetails, $interfaceFilterOverlay);
     }
     
     $devdetails->setCap('interfaceIndexingPersistent');
@@ -65,7 +99,7 @@ sub discover
     my $session = $dd->session();
             
     $data->{'param'}{'snmp-oids-per-pdu'} = 10;
-    
+        
     return 1;
 }
 
