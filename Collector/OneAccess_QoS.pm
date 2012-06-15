@@ -309,8 +309,8 @@ sub initTargetAttributes
     # Retrieve and translate oacQosServicePolicyTable
 
     if( not defined $ServicePolicyTable{$hosthash} )
-    {
-        Debug('Retrieving Oneaccess QoS maps from ' . $hosthash);
+    {        
+        Debug('Retrieving OneAccess QoS maps from ' . $hosthash);
 
         my $ref = {};
         $ServicePolicyTable{$hosthash} = $ref;
@@ -376,9 +376,11 @@ sub initTargetAttributes
         my $ref = {};
         $CfgTable{$hosthash} = $ref;
 
-        foreach my $table ( 'oacQosPolicyMapName', 'oacQosCMName',
-                            'oacQosMatchStmtName', 'oacQosQueueingCfgBandwidth',
-                            'oacQosTSCfgRate', 'oacQosPoliceCfgRate' )
+        foreach my $table ( 'oacQosPolicyMapName',
+                            'oacQosCMName',
+                            'oacQosMatchName',
+                            'oacQosQueueingCfgBandwidth',
+                            'oacQosPoliceCfgCIR' )
         {
             my $result =
                 $session->get_table( -baseoid => $oiddef{$table},
@@ -552,7 +554,7 @@ sub postProcess
     
     # Flush all QoS object mapping
     foreach my $token ( keys %{$scref->{'needsRemapping'}},
-                        keys %{$cref->{'cbQoSNeedsRemapping'}} )
+                        keys %{$cref->{'oacQoSNeedsRemapping'}} )
     {
         if( $cref->{'QosEnabled'}{$token} )
         {
@@ -577,7 +579,7 @@ sub postProcess
         foreach my $token (@{$tokens})
         {
             delete $scref->{'needsRemapping'}{$token};
-            delete $cref->{'cbQoSNeedsRemapping'}{$token};
+            delete $cref->{'oacQoSNeedsRemapping'}{$token};
             if( not initTargetAttributes( $collector, $token ) )
             {
                 $collector->deleteTarget($token);
