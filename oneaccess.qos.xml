@@ -27,67 +27,67 @@
 <definitions>
  <!-- ONEACCESS-CLASS-BASED-QOS-MIB -->
 
-  <def name="CMPrePolicyPkt64"
+  <def name="oacCMPrePolicyPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.2"/>
-  <def name="CMPrePolicyByte64"
+  <def name="oacCMPrePolicyByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.4"/>
-  <def name="CMPrePolicyBitRate"
+  <def name="oacCMPrePolicyBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.5"/>
-  <def name="CMPostPolicyByte64"
+  <def name="oacCMPostPolicyByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.7"/>
-  <def name="CMPostPolicyBitRate"
+  <def name="oacCMPostPolicyBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.8"/>
-  <def name="CMDropPkt64"
+  <def name="oacCMDropPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.10"/>
-  <def name="CMDropByte64"
+  <def name="oacCMDropByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.12"/>
-  <def name="CMDropBitRate"
+  <def name="oacCMDropBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.6.1.13"/>
-  <def name="MatchPrePolicyPkt64"
+  <def name="oacMatchPrePolicyPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.8.1.2"/>
-  <def name="MatchPrePolicyByte64"
+  <def name="oacMatchPrePolicyByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.8.1.4"/>
-  <def name="MatchPrePolicyBitRate"
+  <def name="oacMatchPrePolicyBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.8.1.5"/>
 
-  <def name="PoliceConformedPkt64"
+  <def name="oacPoliceConformedPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.2"/>
-  <def name="PoliceConformedByte64"
+  <def name="oacPoliceConformedByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.4"/>
-  <def name="PoliceConformedBitRate"
+  <def name="oacPoliceConformedBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.5"/>
-  <def name="PoliceExceededPkt64"
+  <def name="oacPoliceExceededPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.7"/>
-  <def name="PoliceExceededByte64"
+  <def name="oacPoliceExceededByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.9"/>
-  <def name="PoliceExceededBitRate"
+  <def name="oacPoliceExceededBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.10"/>
-  <def name="PoliceViolatedPkt64"
+  <def name="oacPoliceViolatedPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.12"/>
-  <def name="PoliceViolatedByte64"
+  <def name="oacPoliceViolatedByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.14"/>
-  <def name="PoliceViolatedBitRate"
+  <def name="oacPoliceViolatedBitRate"
                       value="1.3.6.1.4.1.13191.10.3.1.3.12.1.15"/>
- <def name="QueueingDiscardByte64"
+ <def name="oacQueueingDiscardByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.17.1.2"/>
-  <def name="QueueingDiscardPkt64"
+  <def name="oacQueueingDiscardPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.17.1.4"/>
-  <def name="QueueingCurrentQDepth"
+  <def name="oacQueueingCurrentQDepth"
                       value="1.3.6.1.4.1.13191.10.3.1.3.17.1.5"/>
-  <def name="QueueingMaxQDepth"
+  <def name="oacQueueingMaxQDepth"
                       value="1.3.6.1.4.1.13191.10.3.1.3.17.1.6"/>
                     
-  <def name="REDRandomDropPkt64"
+  <def name="oacREDRandomDropPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.4"/>
-  <def name="REDRandomDropByte64"
+  <def name="oacREDRandomDropByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.6"/>
-  <def name="REDTailDropPkt64"
+  <def name="oacREDTailDropPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.8"/>
-  <def name="REDTailDropByte64"
+  <def name="oacREDTailDropByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.10"/>
-  <def name="REDTransmitPkt64"
+  <def name="oacREDTransmitPkt64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.12"/>
-  <def name="REDTransmitByte64"
+  <def name="oacREDTransmitByte64"
                       value="1.3.6.1.4.1.13191.10.3.1.3.15.1.14"/>
                                             
 </definitions>
@@ -168,7 +168,7 @@
 
     <leaf name="Pre_Policy_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$CMPrePolicyPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMPrePolicyPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyPkt" />
       <param name="comment">
         Inbound packets prior to executing any QoS policies
@@ -179,7 +179,7 @@
 
     <leaf name="Pre_Policy_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$CMPrePolicyByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMPrePolicyByte64.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyByte" />
       <param name="comment">
         Inbound octets prior to executing any QoS policies
@@ -190,7 +190,7 @@
 
     <leaf name="Pre_Policy_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$CMPrePolicyBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMPrePolicyBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyBitRate" />
       <param name="comment">
         The bit rate of the traffic prior to executing any QoS policies
@@ -203,7 +203,7 @@
 
     <leaf name="Post_Policy_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$CMPostPolicyByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMPostPolicyByte64.POL.OBJ" />
       <param name="rrd-ds"      value="PostPolicyByte" />
       <param name="comment">
         Outbound octets after executing QoS policies
@@ -214,7 +214,7 @@
 
     <leaf name="Post_Policy_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$CMPostPolicyBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMPostPolicyBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="PostPolicyBitRate" />
       <param name="comment">
         The bit rate of the traffic after executing QoS policies
@@ -227,7 +227,7 @@
 
     <leaf name="Dropped_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$CMDropPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMDropPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="DropPkt" />
       <param name="comment">
         Dropped packets as the result of all features that can produce drops
@@ -239,7 +239,7 @@
 
     <leaf name="Dropped_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$CMDropByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMDropByte64.POL.OBJ" />
       <param name="rrd-ds"      value="DropByte" />
       <param name="comment">
         Dropped bytes as the result of all features that can produce drops
@@ -251,7 +251,7 @@
 
     <leaf name="Dropped_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$CMDropBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacCMDropBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="DropBitRate" />
       <param name="comment">
         The bit rate of the drops as the result of all features that can
@@ -272,7 +272,7 @@
 
   <leaf name="Pre_Policy_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$MatchPrePolicyPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacMatchPrePolicyPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyPkt" />
       <param name="comment">
         Inbound packets prior to executing any QoS policies
@@ -283,7 +283,7 @@
 
     <leaf name="Pre_Policy_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$MatchPrePolicyByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacMatchPrePolicyByte64.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyByte" />
       <param name="comment">
         Inbound octets prior to executing any QoS policies
@@ -294,7 +294,7 @@
 
     <leaf name="Pre_Policy_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$MatchPrePolicyBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacMatchPrePolicyBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="PrePolicyBitRate" />
       <param name="comment">
         The bit rate of the traffic prior to executing any QoS policies
@@ -316,7 +316,7 @@
 
     <leaf name="Conformed_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$PoliceConformedPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceConformedPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="ConformedPkt" />
       <param name="comment">
         Packets treated as conforming by the policing feature
@@ -327,7 +327,7 @@
 
     <leaf name="Conformed_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$PoliceConformedByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceConformedByte64.POL.OBJ" />
       <param name="rrd-ds"      value="ConformedByte" />
       <param name="comment">
         Bytes treated as conforming by the policing feature
@@ -338,7 +338,7 @@
 
     <leaf name="Conformed_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$PoliceConformedBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceConformedBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="ConformedBitRate" />
       <param name="comment">
         The bit rate of conforming traffic
@@ -351,7 +351,7 @@
 
     <leaf name="Exceeded_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$PoliceExceededPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceExceededPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="ExceededPkt" />
       <param name="comment">
         Packets treated as conforming by the policing feature
@@ -362,7 +362,7 @@
 
     <leaf name="Exceeded_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$PoliceExceededByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceExceededByte64.POL.OBJ" />
       <param name="rrd-ds"      value="ExceededByte" />
       <param name="comment">
         Bytes treated as conforming by the policing feature
@@ -373,7 +373,7 @@
 
     <leaf name="Exceeded_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$PoliceExceededBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceExceededBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="ExceededBitRate" />
       <param name="comment">
         The bit rate of conforming traffic
@@ -386,7 +386,7 @@
 
     <leaf name="Violated_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$PoliceViolatedPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceViolatedPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="ViolatedPkt" />
       <param name="comment">
         Packets treated as conforming by the policing feature
@@ -397,7 +397,7 @@
 
     <leaf name="Violated_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$PoliceViolatedByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceViolatedByte64.POL.OBJ" />
       <param name="rrd-ds"      value="ViolatedByte" />
       <param name="comment">
         Bytes treated as conforming by the policing feature
@@ -408,7 +408,7 @@
 
     <leaf name="Violated_Bitrate">
       <apply-template name="oneaccess-cbqos-bitrate" />
-      <param name="snmp-object" value="$PoliceViolatedBitRate.POL.OBJ" />
+      <param name="snmp-object" value="$oacPoliceViolatedBitRate.POL.OBJ" />
       <param name="rrd-ds"      value="ViolatedBitRate" />
       <param name="comment">
         The bit rate of conforming traffic
@@ -426,7 +426,7 @@
   <template name="oneaccess-cbqos-queueing-meters">
 
     <leaf name="Queue_Depth">
-      <param name="snmp-object" value="$QueueingCurrentQDepth.POL.OBJ" />
+      <param name="snmp-object" value="$oacQueueingCurrentQDepth.POL.OBJ" />
       <param name="rrd-ds"      value="CurrentQDepth" />
       <param name="rrd-create-dstype" value="GAUGE" />
       <param name="vertical-label"    value="Bytes" />
@@ -439,7 +439,7 @@
     
     <leaf name="Discarded_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
-      <param name="snmp-object" value="$QueueingDiscardByte64.POL.OBJ" />
+      <param name="snmp-object" value="$oacQueueingDiscardByte64.POL.OBJ" />
       <param name="rrd-ds"      value="DiscardByte" />
       <param name="comment">
         The number of octets that were dropped by queueing
@@ -450,7 +450,7 @@
 
     <leaf name="Discarded_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
-      <param name="snmp-object" value="$QueueingDiscardPkt64.POL.OBJ" />
+      <param name="snmp-object" value="$oacQueueingDiscardPkt64.POL.OBJ" />
       <param name="rrd-ds"      value="DiscardPkt" />
       <param name="comment">
         The number of packets that were dropped by queueing
@@ -477,7 +477,7 @@
     <leaf name="Random_Dropped_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
       <param name="snmp-object"
-             value="$REDRandomDropPkt64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDRandomDropPkt64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="RandomDropPkt" />
       <param name="comment">
         Count of packets dropped when the number of packets in the
@@ -491,7 +491,7 @@
     <leaf name="Random_Dropped_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
       <param name="snmp-object"
-             value="$REDRandomDropByte64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDRandomDropByte64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="RandomDropByte" />
       <param name="comment">
         Count of octets dropped when the number of packets in the
@@ -505,7 +505,7 @@
     <leaf name="Tail_Dropped_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
       <param name="snmp-object"
-             value="$REDTailDropPkt64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDTailDropPkt64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="TailDropPkt" />
       <param name="comment">
         Count of packets dropped when the number of packets in the
@@ -518,7 +518,7 @@
     <leaf name="Tail_Dropped_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
       <param name="snmp-object"
-             value="$REDTailDropByte64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDTailDropByte64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="TailDropByte" />
       <param name="comment">
         Count of octets dropped when the number of packets in the
@@ -531,7 +531,7 @@
     <leaf name="Transmit_Packets">
       <apply-template name="oneaccess-cbqos-pkt" />
       <param name="snmp-object"
-             value="$REDTransmitPkt64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDTransmitPkt64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="TransmitPkt" />
       <param name="comment">
         Packets transmitted
@@ -543,7 +543,7 @@
     <leaf name="Transmit_Bytes">
       <apply-template name="oneaccess-cbqos-byte" />
       <param name="snmp-object"
-             value="$REDTransmitByte64.POL.OBJ.%cbqos-red-dscp%" />
+             value="$oacREDTransmitByte64.POL.OBJ.%cbqos-red-dscp%" />
       <param name="rrd-ds"      value="TransmitByte" />
       <param name="comment">
         Octets transmitted
