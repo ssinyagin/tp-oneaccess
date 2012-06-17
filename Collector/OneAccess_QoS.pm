@@ -175,6 +175,7 @@ my %ServicePolicyTable;
 my %ServicePolicyMapping;
 my %ObjectsTable;
 my %CfgTable;
+our $qosTablesRetrieveAfterStartMinInterval = 150;
 
 # This is first executed per target
 
@@ -191,7 +192,7 @@ sub initTarget
     my $tref = $collector->tokenData( $token );
     my $cref = $collector->collectorData( 'oneaccess-cbqos' );
 
-    $cref->{'QosEnabled'}{$token} = 1;
+    $cref->{'oacQosEnabled'}{$token} = 1;
     
     $collector->registerDeleteCallback( $token, \&deleteTarget );
     
@@ -556,7 +557,7 @@ sub postProcess
     foreach my $token ( keys %{$scref->{'needsRemapping'}},
                         keys %{$cref->{'oacQoSNeedsRemapping'}} )
     {
-        if( $cref->{'QosEnabled'}{$token} )
+        if( $cref->{'oacQosEnabled'}{$token} )
         {
             my $tref = $collector->tokenData( $token );
             my $hosthash = $tref->{'hosthash'};    
@@ -571,10 +572,15 @@ sub postProcess
 
     while(my ($hosthash, $tokens) = each %remapping_hosts )
     {
-        delete $ServicePolicyTable{$hosthash};
-        delete $ServicePolicyMapping{$hosthash};
-        delete $ObjectsTable{$hosthash};
-        delete $CfgTable{$hosthash};
+        if( time() - $collector->whenStarted() >
+            $qosTablesRetrieveAfterStartMinInterval )
+        {
+            Debug('Flushing OneAccess cbQoS maps for ' . $hosthash);
+            delete $ServicePolicyTable{$hosthash};
+            delete $ServicePolicyMapping{$hosthash};
+            delete $ObjectsTable{$hosthash};
+            delete $CfgTable{$hosthash};
+        }
 
         foreach my $token (@{$tokens})
         {
@@ -600,7 +606,7 @@ sub deleteTarget
 
     my $cref = $collector->collectorData( 'oneaccess-cbqos' );
 
-    delete $cref->{'QosEnabled'}{$token};
+    delete $cref->{'oacQosEnabled'}{$token};
 
     Torrus::Collector::SNMP::deleteTarget( $collector, $token );
 
