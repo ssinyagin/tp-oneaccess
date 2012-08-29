@@ -1,3 +1,7 @@
+2012-08-29  Stanislav Sinyagin  <ssinyagin@users.sourceforge.net>
+
+	* NEWS: tp-oneaccess release 2.03.01
+
 2012-06-14  Stanislav Sinyagin  <ssinyagin@users.sourceforge.net>
 
 	* Collector/OneAccess_QoS.pm: aligned to the current Cisco QoS plugin
